@@ -4,133 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aguirre Services</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
     <style>
         /* Estilos Generales */
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Fuente principal */
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* Blanco */
-            color: #000000; /* Negro */
+            background-color: #ffffff; /* Fondo blanco */
+            color: #000000; /* Texto negro */
             line-height: 1.6;
+            overflow-x: hidden; /* Evita el scroll horizontal */
         }
         header {
-            background-color: #ffffff;
+            background-color: #ffffff; /* Fondo del encabezado blanco */
             padding: 20px 0;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            position: sticky; /* Encabezado fijo al hacer scroll */
             top: 0;
-            z-index: 100;
+            z-index: 100; /* Asegura que el encabezado esté por encima de otros elementos */
         }
         header .logo img {
-            width: 150px;
+            width: 150px; /* Tamaño del logo */
+            max-width: 80%; /* Asegura que el logo sea responsive */
+            height: auto;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 1200px; /* Ancho máximo del contenido */
+            margin: 0 auto; /* Centra el contenido */
+            padding: 0 20px; /* Espaciado interno */
         }
         section {
-            padding: 60px 0;
+            padding: 60px 0; /* Espaciado superior e inferior de las secciones */
             text-align: center;
         }
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.5rem; /* Tamaño del título */
             margin-bottom: 20px;
-            color: #003366;
-            font-weight: 700;
-            animation: fadeIn 1s ease, slideInDown 0.5s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-50px);
-            }
-            to {
-                transform: translateY(0);
-            }
+            color: #003366; /* Color azul oscuro para los títulos */
+            font-weight: 700; /* Negrita */
+            /* Animaciones eliminadas de los títulos */
         }
 
         /* Estilos de la Galería de Servicios */
         .services-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            display: grid; /* Usa CSS Grid para el diseño de la galería */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+            gap: 20px; /* Espaciado entre las tarjetas */
             margin-top: 40px;
         }
         .service-card {
-            background-color: #ffffff;
+            background-color: #ffffff; /* Fondo de la tarjeta blanco */
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+            overflow: hidden; /* Oculta el contenido que se desborda */
         }
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
         }
         .service-card img {
-            width: 100%;
+            width: 100%; /* Imagen ocupa todo el ancho de la tarjeta */
             height: auto;
-            border-radius: 10px;
+            border-radius: 10px; /* Bordes redondeados para la imagen */
             margin-bottom: 15px;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease; /* Transición para el zoom de la imagen */
         }
         .service-card:hover img {
-             transform: scale(1.1);
+            transform: scale(1.1); /* Efecto de zoom en la imagen al pasar el mouse */
         }
         .service-card h3 {
-            font-size: 1.2rem;
-            color: #003366;
+            font-size: 1.2rem; /* Tamaño del título de la tarjeta */
+            color: #003366; /* Color azul oscuro */
             margin-bottom: 10px;
-            font-weight: 600;
+            font-weight: 600; /* Seminegrita */
         }
         .service-card p {
             font-size: 1rem;
-            color: #333;
+            color: #333; /* Color de texto gris oscuro */
             margin-bottom: 15px;
         }
 
         /* Estilos de la sección Quiénes Somos */
         #about-us {
-            background-color: #f5f5f5;
+            background-color: #f5f5f5; /* Fondo gris claro */
         }
         #about-us p {
             font-size: 1.1rem;
             color: #333;
             line-height: 1.8;
-            animation: fadeIn 1s ease, slideInLeft 0.5s ease;
-        }
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-50px);
-            }
-            to {
-                transform: translateX(0);
-            }
+            /* Animaciones eliminadas del texto */
         }
 
         /* Estilos de la sección de Contacto */
         #contact {
-            background-color: #ffffff;
+            background-color: #ffffff; /* Fondo blanco */
         }
         #contact h2{
-           animation: fadeIn 1s ease, slideInRight 0.5s ease;
-        }
-        @keyframes slideInRight {
-            from {
-                transform: translateX(50px);
-            }
-            to {
-                transform: translateX(0);
-            }
+            /* Animaciones eliminadas del título */
         }
         #contact p {
             font-size: 1.1rem;
@@ -145,14 +120,19 @@
 
         /* Estilos del pie de página */
         footer {
-            background-color: #003366;
-            color: #ffffff;
+            background-color: #003366; /* Fondo azul oscuro */
+            color: #ffffff; /* Texto blanco */
             text-align: center;
             padding: 20px 0;
             font-size: 0.9rem;
         }
         footer p{
-            animation: fadeIn 1s ease;
+            animation: fadeIn 1s ease; /* Animación de aparición */
+        }
+        /* Keyframes para la animación de aparición (se mantiene para el footer) */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Estilos del botón Contáctanos */
@@ -168,14 +148,16 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            animation: pulse 2s infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+            animation: pulse 2s infinite; /* Animación de pulsación */
+            text-decoration: none; /* Quita el subrayado del enlace */
         }
         .contact-button:hover {
             background-color: #002244; /* Un tono más oscuro al pasar el mouse */
             transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
         }
+        /* Keyframes para la animación de pulsación */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -185,13 +167,13 @@
         /* Media Queries para Responsive Design */
         @media (max-width: 768px) {
             .services-gallery {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
             }
             h2 {
-                font-size: 2rem;
+                font-size: 2rem; /* Tamaño de título más pequeño */
             }
             section {
-                padding: 40px 0;
+                padding: 40px 0; /* Menos espaciado en secciones */
             }
             .contact-button {
                 bottom: 10px;
@@ -219,42 +201,47 @@
                     <div class="service-card">
                         <img src="images/1.jpg" alt="Todos los Servicios">
                         <h3>Servicios Integrales</h3>
-                        <p>En Aguirre Services ofrecemos soluciones confiables a domicilio. Nuestro equipo está listo para atender tus necesidades con profesionalismo y calidad.</p>
+                        <p>En Aguirre Services ofrecemos soluciones confiables a domicilio. Nuestro equipo está listo para atender tus necesidades con profesionalismo y calidad, cubriendo una amplia gama de servicios para tu hogar y negocio.</p>
                     </div>
                     <div class="service-card">
-                        <img src="images/2.jpg" alt="Servicio de Lavado">
-                        <h3>Servicio de Lavado de Autos</h3>
-                        <p>Paquetes de lavado de autos para mantener tu vehículo impecable. ¡Elige el que mejor se adapte a ti!</p>
+                        <img src="images/2.jpg" alt="Servicio de Lavado de Autos Estándar">
+                        <h3>Servicio de Lavado de Autos Estándar</h3>
+                        <p>Paquetes de lavado de autos para mantener tu vehículo impecable. Incluye lavado exterior, aspirado interior básico y limpieza de cristales. ¡Elige el que mejor se adapte a ti!</p>
                     </div>
                     <div class="service-card">
-                        <img src="images/3.jpg" alt="Servicio de Lavado">
-                         <h3>Servicio de Lavado de Autos Premium</h3>
-                        <p>Lavado a detalle, encerado, pulido y aspirado.</p>
+                        <img src="images/3.jpg" alt="Servicio de Lavado de Autos Premium">
+                        <h3>Servicio de Lavado de Autos Premium</h3>
+                        <p>Nuestro paquete premium ofrece un lavado a detalle, encerado, pulido de carrocería y un aspirado profundo, dejando tu auto como nuevo y protegido.</p>
                     </div>
                     <div class="service-card">
                         <img src="images/4.jpg" alt="Servicio de Plomería">
                         <h3>Servicio de Plomería</h3>
-                        <p>Reparaciones, instalaciones y mantenimiento de plomería. Soluciones rápidas y eficientes.</p>
+                        <p>Expertos en reparaciones, instalaciones y mantenimiento de plomería. Desde fugas menores hasta instalaciones completas, te ofrecemos soluciones rápidas, eficientes y duraderas.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="images/9.png" alt="Servicio de Impermeabilización">
+                        <h3>Servicio de Impermeabilización</h3>
+                        <p>Protege tu hogar o negocio de la humedad con nuestros servicios de impermeabilización. Aplicamos los mejores materiales y técnicas para garantizar la durabilidad y resistencia de tus techos y superficies.</p>
                     </div>
                     <div class="service-card">
                         <img src="images/5.png" alt="Servicio de Pintura">
                         <h3>Servicio de Pintura</h3>
-                        <p>Servicios de pintura para interiores y exteriores. Dale un nuevo look a tu hogar o negocio.</p>
-                     </div>
+                        <p>Servicios de pintura profesional para interiores y exteriores. Dale un nuevo look a tu hogar o negocio con acabados de alta calidad y una amplia gama de colores.</p>
+                    </div>
                     <div class="service-card">
                         <img src="images/6.png" alt="Venta de Aires Acondicionados">
                         <h3>Venta de Aires Acondicionados</h3>
-                        <p>Venta e instalación de aires acondicionados. Climatización para tu confort.</p>
+                        <p>Ofrecemos una amplia selección de aires acondicionados de las mejores marcas, con venta e instalación profesional para garantizar la climatización perfecta para tu confort.</p>
                     </div>
-                     <div class="service-card">
-                        <img src="images/7.png" alt="Venta de Aires Acondicionados">
+                    <div class="service-card">
+                        <img src="images/7.png" alt="Mantenimiento de Aires Acondicionados">
                         <h3>Mantenimiento de Aires Acondicionados</h3>
-                        <p>Venta e instalación de aires acondicionados. Climatización para tu confort.</p>
+                        <p>Servicios completos de mantenimiento y recarga de gas para tus aires acondicionados, asegurando su óptimo funcionamiento y prolongando su vida útil.</p>
                     </div>
                     <div class="service-card">
                         <img src="images/8.png" alt="Servicio de Herrería">
                         <h3>Servicio de Herrería</h3>
-                        <p>Instalación y reparación de estructuras metálicas.  Dale seguridad y estilo a tu espacio.</p>
+                        <p>Fabricación, instalación y reparación de estructuras metálicas a medida. Dale seguridad y estilo a tu espacio con trabajos de herrería de alta calidad y diseño.</p>
                     </div>
                 </div>
             </div>
@@ -263,29 +250,43 @@
         <section id="about-us">
             <div class="container">
                 <h2>Quiénes Somos</h2>
-                <p>En Aguirre Services ofrecemos soluciones confiables a domicilio. Nuestro equipo está listo para atender tus necesidades con profesionalismo y calidad.</p>
+                <p>En Aguirre Services somos una empresa dedicada a ofrecer soluciones integrales a domicilio para el mantenimiento y mejora de tu hogar y vehículo. Contamos con un equipo de profesionales altamente capacitados y comprometidos con la calidad, listos para atender tus necesidades con la máxima eficiencia y profesionalismo. Nuestra misión es brindarte tranquilidad y satisfacción a través de servicios confiables y de excelencia.</p>
             </div>
         </section>
 
         <section id="contact">
             <div class="container">
                 <h2>Contacto</h2>
-                <p>Teléfonos de contacto:</p>
+                <p>Para cualquier consulta o para solicitar nuestros servicios, no dudes en contactarnos a los siguientes números:</p>
                 <p class="phone-numbers">9371197710 / 9932090717</p>
-                <p>Si necesitas más información sobre otros servicios, no dudes en contactarnos.</p>
+                <p>Si necesitas más información sobre otros servicios que no se mencionan, o tienes alguna pregunta específica, nuestro equipo de atención al cliente estará encantado de ayudarte. ¡Esperamos tu llamada!</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Aguirre Services. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Aguirre Services. Todos los derechos reservados.</p>
     </footer>
 
     <a href="#contact" class="contact-button">Contáctanos</a>
 
     <script>
-        // Puedes agregar aquí scripts de JavaScript adicionales si es necesario.
-        // Por ejemplo, para animaciones más complejas o interacciones.
+        // JavaScript para animaciones o interacciones adicionales si es necesario
+        // Se ha eliminado el código que controlaba las animaciones de los títulos y párrafos
+        // de 'Nuestros Servicios' y 'Quiénes Somos' para evitar que desaparezcan.
+        document.addEventListener('DOMContentLoaded', () => {
+            // Añadir clase para animar las tarjetas de servicio al cargar
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }, index * 100); // Retraso para un efecto escalonado
+            });
+        });
     </script>
 </body>
 </html>
