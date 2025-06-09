@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aguirre Services</title>
+    <!-- Enlace a la fuente Montserrat desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon: Se usa el mismo logo de la cabecera para el icono del navegador -->
     <link rel="icon" href="images/logo.png" type="image/png">
     <style>
         /* Estilos Generales */
@@ -164,6 +166,21 @@
             100% { transform: scale(1); }
         }
 
+        /* Estilos del mensaje de facturación */
+        .invoice-message {
+            position: fixed; /* Posición fija en la pantalla */
+            bottom: 20px; /* Misma distancia del botón de contacto */
+            left: 20px; /* Alineado a la izquierda */
+            background-color: #003366; /* Fondo azul oscuro */
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 999; /* Ligeramente debajo del botón de contacto si se superponen */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
         /* Media Queries para Responsive Design */
         @media (max-width: 768px) {
             .services-gallery {
@@ -180,6 +197,12 @@
                 right: 10px;
                 padding: 12px 18px;
                 font-size: 1rem;
+            }
+            .invoice-message {
+                bottom: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -268,14 +291,16 @@
         <p>&copy; 2024 Aguirre Services. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Mensaje de facturación fijo -->
+    <div class="invoice-message">
+        Realizamos facturas + IVA
+    </div>
+
+    <!-- Botón flotante para contactar -->
     <a href="#contact" class="contact-button">Contáctanos</a>
 
     <script>
-        // JavaScript para animaciones o interacciones adicionales si es necesario
-        // Se ha eliminado el código que controlaba las animaciones de los títulos y párrafos
-        // de 'Nuestros Servicios' y 'Quiénes Somos' para evitar que desaparezcan.
         document.addEventListener('DOMContentLoaded', () => {
-            // Añadir clase para animar las tarjetas de servicio al cargar
             const serviceCards = document.querySelectorAll('.service-card');
             serviceCards.forEach((card, index) => {
                 card.style.opacity = 0;
